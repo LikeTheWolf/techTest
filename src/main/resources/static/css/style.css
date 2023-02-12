@@ -62,6 +62,18 @@ body {
 .notes-view .notes-panel .notes-list .note-timedate {
     font-size: 10px;
 }
+fieldset {
+    margin: 10px;
+    border: 1px solid grey;
+    padding: 20px;    
+    border-radius: 10px;
+    display: inline-block;
+    text-align:center;
+}
+
+.md-button.md-small {
+    min-width: 1%;
+}
 
 
 

@@ -1,6 +1,5 @@
 package com.thevirtugroup.postitnote.config;
 
-import com.thevirtugroup.postitnote.repository.UserRepository;
 import com.thevirtugroup.postitnote.security.CustomAuthenticationSuccessHandler;
 import com.thevirtugroup.postitnote.security.JsonAuthenticationFilter;
 import org.springframework.beans.factory.annotation.Autowired;

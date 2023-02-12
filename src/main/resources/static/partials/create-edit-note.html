@@ -1,22 +1,24 @@
 <h4>Note</h4>
 
-<form>
+<form name="editNoteForm">
     <md-input-container>
         <label>Name</label>
-        <input type="text" ng-model="color" required md-maxlength="10">
+        <input type="text" ng-model="note.name" required md-maxlength="20">
     </md-input-container>
 
     <md-input-container>
         <label>Note text</label>
-        <textarea class="note-body" ng-model="note" rows="10" required md-maxlength="500">
+        <textarea class="note-body" ng-model="note.text" rows="10" required md-maxlength="500">
                 </textarea>
     </md-input-container>
+    
+    <div class="deleteButton"><md-button class="md-raised md-sml md-warn" style="float:right" ng-click="deleteNote()">delete</md-button></div>
 
     <div class="action-buttons">
-        <md-button>
+        <md-button class="md-raised md-primary" ng-click="saveNote()" ng-disabled="editNoteForm.$invalid">
             Save
         </md-button>
-        <md-button>
+        <md-button class="md-raised md-secondary" ng-click="cancelEdit()">
             Cancel
         </md-button>
     </div>
