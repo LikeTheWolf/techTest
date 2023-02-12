@@ -32,7 +32,6 @@
       });
       
       $rootScope.logout = function(){
-    	  console.log("should log out");
     	  AuthService.clearUser();
     	  $location.path('/login');
 	  };
@@ -107,7 +106,6 @@
 
     $scope.login = function(){
         AuthService.login($scope.login.username, $scope.login.password).then(function(user){
-            console.log(user);
             AuthService.storeUser(user);
             AuthService.storeNotes(user?.data?.notes);
             $location.path("/");
@@ -147,7 +145,7 @@
 		        text : null
 		    };
         }, function(error){
-        	console.log("save note response error: " + error);
+        	console.log(error);
         }) 
       }
     };
@@ -167,7 +165,6 @@
     }
 
     $scope.cancelEdit = function(){
-        console.log("cancel edit clicked");
         AuthService.setEditCreateView(false);
         $scope.note = {
 			id : null,
@@ -178,7 +175,6 @@
 
     $scope.saveNote = function(){           
         $http.post("api/saveNote", {id: $scope.note.id, name: $scope.note.name, text: $scope.note.text}).then(function(response){
-        	console.log("save note response received");
         	$scope.notes = response.data;
         	AuthService.setEditCreateView(false);
 		    $scope.note = {
@@ -188,7 +184,7 @@
 		    };
 		    AuthService.storeNotes(response.data);
         }, function(error){
-        	console.log("save note response error: " + error);
+        	console.log(error);
         }); 
     };
   });
